@@ -41,7 +41,7 @@ def generate_large_img(urls: list, output_filename='large.jpg', save_part=True) 
         data = np.frombuffer(raw_data, dtype=np.uint8)
         img = cv2.imdecode(data, flags=cv2.IMREAD_COLOR)
         if save_part is True:
-            cv2.imwrite(f'{output_dir}/{count}.jpg', img)
+            cv2.imwrite(f'{output_dir}{os.path.sep}{count}.jpg', img)
         imgs.append(img)
         count += 1
     img_v = cv2.vconcat(imgs)
